@@ -1,0 +1,24 @@
+---
+# tasks file for clickhouse
+
+- name: Add repo gpg key into system
+  apt_key:
+    data: "{{ clickhouse_ubuntu_repo_key }}"
+    state: present
+
+- name: Add official clickhouse repo
+  apt_repository: "{{ clickhouse_ubuntu_repo }}"
+
+- name: Install clickhouse server and client
+  apt:
+    name: "{{ item }}"
+    state: latest
+    update_cache: yes
+    cache_valid_time: 180
+  with_items:
+    - clickhouse-server-common
+    - clickhouse-client
+
+# TODO: do a config template
+# - name: Configure clickhouse
+#   template: 
