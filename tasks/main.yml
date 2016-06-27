@@ -7,7 +7,9 @@
     state: present
 
 - name: Add official clickhouse repo
-  apt_repository: "{{ clickhouse_ubuntu_repo }}"
+  apt_repository:
+    repo: "{{ clickhouse_ubuntu_repo }}"
+    state: present
 
 - name: Install clickhouse server and client
   apt:

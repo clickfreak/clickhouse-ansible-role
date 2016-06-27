@@ -1,5 +1,5 @@
 ---
 # defaults file for clickhouse
 
-clickhouse_ubuntu_repo: "deb http://repo.yandex.ru/clickhouse/{{ ansible_lsb.codename }}/ dists/stable/main/binary-amd64/"
-clickhouse_ubuntu_repo_key: "{{ lookup('file'), 'CLICKHOUSE-KEY.GPG' }}" # Copy of http://repo.yandex.ru/clickhouse/CLICKHOUSE-KEY.GPG
+clickhouse_ubuntu_repo: "deb https://repo.yandex.ru/clickhouse/{{ ansible_lsb.codename }}/ dists/stable/main/binary-amd64/"
+clickhouse_ubuntu_repo_key: "{{ lookup('file', 'CLICKHOUSE-KEY.GPG') }}" # Copy of http://repo.yandex.ru/clickhouse/CLICKHOUSE-KEY.GPG
